@@ -1,0 +1,12 @@
+{
+  "key.fakelag.toggle": "Toggle FakeLag",
+  "category.fakelag": "FakeLag",
+  "fakelag.config.title": "FakeLag Settings",
+  "fakelag.config.enabled": "Enabled",
+  "fakelag.config.mode": "Mode",
+  "fakelag.config.outboundDelayMs": "Outbound Delay (ms)",
+  "fakelag.config.inboundDelayMs": "Inbound Delay (ms)",
+  "fakelag.config.pulseHoldMs": "Pulse Hold (ms)",
+  "fakelag.config.pulseReleaseMs": "Pulse Release (ms)",
+  "fakelag.config.logPackets": "Log Packets"
+}
