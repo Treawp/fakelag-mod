@@ -3,7 +3,6 @@ package com.example.fakelag.core;
 import net.minecraft.network.Connection;
 import net.minecraft.network.PacketSendListener;
 import net.minecraft.network.protocol.Packet;
-import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
@@ -20,7 +19,7 @@ public class PacketDelayQueue {
     public record HeldPacket(
         Connection connection,
         Packet<?> packet,
-        @Nullable PacketSendListener listener
+        PacketSendListener listener
     ) {}
 
     private static final List<HeldPacket> HOLD_QUEUE = new ArrayList<>();
@@ -52,7 +51,7 @@ public class PacketDelayQueue {
 
     public static boolean tryHold(Connection connection,
                                   Packet<?> packet,
-                                  @Nullable PacketSendListener listener) {
+                                  PacketSendListener listener) {
         synchronized (LOCK) {
             if (!holding) return false;
             HOLD_QUEUE.add(new HeldPacket(connection, packet, listener));
@@ -82,4 +81,4 @@ public class PacketDelayQueue {
         stopPulse();
         SCHEDULER.shutdownNow();
     }
-          }
+            }
