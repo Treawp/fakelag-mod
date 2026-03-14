@@ -10,7 +10,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import javax.annotation.Nullable;
 
 @Mixin(targets = "net.minecraft.network.Connection")
 public class ConnectionOutboundMixin {
@@ -21,7 +20,7 @@ public class ConnectionOutboundMixin {
         cancellable = true
     )
     private void interceptOutbound(Packet<?> packet,
-                                   @Nullable PacketSendListener listener,
+                                   PacketSendListener listener,
                                    CallbackInfo ci) {
         if (!FakeLagMod.isActive()) return;
         FakeLagConfig cfg = FakeLagMod.getConfig();
@@ -40,4 +39,4 @@ public class ConnectionOutboundMixin {
             FakeLagMod.LOGGER.info("[OUT] {} +{}ms", packet.getClass().getSimpleName(), delay);
         PacketDelayQueue.delay(() -> self.send(packet, listener), delay);
     }
-              }
+}
