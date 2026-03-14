@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "fakelag",
+  "version": "${version}",
+  "name": "FakeLag",
+  "description": "Network latency simulator",
+  "authors": ["YourName"],
+  "environment": "client",
+  "entrypoints": {
+    "client": ["com.example.fakelag.FakeLagMod"]
+  },
+  "mixins": ["fakelag.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.18.4",
+    "fabric-api": "*",
+    "minecraft": "~1.21.11",
+    "cloth-config": "*"
+  }
+}
