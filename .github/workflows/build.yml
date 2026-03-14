@@ -19,13 +19,13 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Download Gradle 8.10.2
+      - name: Download Gradle 9.3.1
         run: |
-          wget -q https://services.gradle.org/distributions/gradle-8.10.2-bin.zip -O gradle.zip
+          wget -q https://services.gradle.org/distributions/gradle-9.3.1-bin.zip -O gradle.zip
           unzip -q gradle.zip
 
       - name: Build
-        run: gradle-8.10.2/bin/gradle build
+        run: gradle-9.3.1/bin/gradle build
 
       - name: Upload JAR
         uses: actions/upload-artifact@v4
